@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-ua-compartible" content="IE=edge">
+    <meta name="amazon" content="width=device=width, initial-scale=1.0">
+    <title>Producto</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" type="css/estilos.css" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+    <!-- 
+    RTL version
+    -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
+</head>
+    <body>
+      <header>
+        <nav>
+        <div class="dflex"><a href="http://143.244.157.68/"><img src="img/amazonlogo.png" align="left" class="logo"/><span></span></a>
+           
+           <nav>
+            <div class="item">
+               <button class="dflex" type="button"><i> Hola, </p><h5>Elige tu Direccion</h5></button>
+            </div>
+                </div>
+
+                        <div class="searchBox dflex">
+                            <div class="box">
+                                <div class="dflex">
+                                  
+                                  <button class="all" type="button"> Todos los Departamentos 
+                                     
+                                  </button>
+                                   <input type="text"><button class="search" type="submit">Buscar</button>
+
+                                          <nav class=" registros">
+                                            <div class="item" id="usuario_logueado">
+                                               <a href="login.html"><i> Hola, <span id="nombre_logueado"></span> </p><h5> Cuentas y Listas</h5></i></a>
+                                               
+                                               </div>
+                                            <div class="item">
+                                               <button class="dflex" type="button"><i> Devoluciones </p><h5> y Pedidos </h5></button>
+                                                   
+                                              </div>
+                                          
+                                              <div class="item">
+                                                <button class="dflex" id="btnCarrito" type="button"><i> Carrito </p><h5> </h5></i></button>
+                                                <div id="carrito" class="carrito" style="position:absolute; right:200px">
+                                        
+                                                  <table id="lista-carrito" class="tabla-carrito">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Imagen</th>
+                                                            <th>Producto</th>
+                                                            <th>Precio</th>
+                                                            <th>Cantidad</th>
+                                                            <th>Total</th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="bodyCarrito">
+        
+                                                    </tbody>
+                                                  </table>
+                                                  <div class="botones-carrito" id="botones-carrito">
+                                                    <a href="#" id="vaciar-carrito" class="btn btn-danger w-50">Vaciar Carrito</a>
+                                                    <a href="Tabla2/index.html" id="finalizar-pedido" class="btn btn-success w-50">Finalizar pedido</a>
+                                                  </div>
+                          </div>
+                                              </div>
+                                </nav>
+                             
+</div>
+                </div>
+             </div>
+        
+        </nav>
+      </nav>
+        <nav class="subnavegation">
+          <ul class="submenu" id="submenu">
+
+
+
+            <!-- <li> <a href="#"><i class="fa fa-bars">Todo</li></i>
+            <li><a href="#"><li>Vender</li>
+            <li><a href="#"><li>Lo mas vendido</li>
+            <li><a href="#"><li>Amazon basic<i class="fa fa-sort-desc"></i></li>
+            <li><a href="#"><li>Prime</li>
+            <li><a href="#"><li>Servicio al cliente</li>
+            <li><a href="#"><li>Moda</li>
+            <li><a href="#"><li>Electronicos</li>
+            <li><a href="#"><li>Promociones</li> -->
+            
+          </ul>
+          <ul>
+            <li><a href="#">
+              <li class="li">30 Dias GRATIS AmazonMusic</li>
+            </a>
+          </ul>
+        </nav>
+        </header>
+
+
+        <div class="producto">
+            <ul id="producto">
+
+            </ul>
+
+        </div>
+
+        <footer class="footer" style="margin-bottom: 0px;">
+          <div><button class="pagina" type="button"> inicio de pagina</button> </div>
+         
+           
+          
+
+          <div class="container">
+            <div class="row">
+              <div class="footer-col">
+
+                <h4>Conocenos</h4>
+                <ul>
+                  <li><a href="#">Trabajar en Amazon</a></li>
+                  <li><a href="#">Informacion corporativa</a></li>
+                  <li><a href="#">Departamentos de Prensa</a></li>
+                </ul>
+                
+              </div>
+              <div class="footer-col">
+                <h4>Gana Dinero con Nosotros</h4>
+                <ul>
+                  <li><a href="#">Vender en amazon</a></li>
+                  <li><a href="#">Vender en amazon en handmade</a></li>
+                  <li><a href="#">publica tu libro en kindle</a></li>
+                  <li><a href="#">programa de afiliados</a></li>
+                  <li><a href="#">anuncia tus productos</a></li>
+                </ul>
+                
+              </div>
+              <div class="footer-col">
+                <h4>Podemos Ayudarte</h4>
+                <ul>
+                  <li><a href="#">Amazon y COVID-19</a></li>
+                   <li><a href="#">devolver o reemplazar productos</a></li>
+                    <li><a href="#">gestionar contenido</a></li>
+                     <li><a href="#">ayuda</a></li>
+                </ul>
+                
+              </div>
+              <div class="footer-col">
+                <h4>Metodos de Pago</h4>
+                <ul>
+                  <li><a href="#">tardeja de credito o debito</a></li>
+                   <li><a href="#">tarjeta de regalo</a></li>
+                    <li><a href="#">meses sin intereses</a></li>
+                     <li><a href="#">amazon cash</a></li>
+                      <li><a href="#">amazon recargable</a></li>
+                </ul>
+                
+              </div>
+              
+             
+             
+            </div>
+          </div>
+           <nav class="paises">
+              <ul class="submenuu">
+
+            <li><a href="#">Canadá<li></li>|
+              <li><a href="#">Australia<li></li>|
+                <li><a href="#">Alemania<li></li>|
+            <li><a href="#">China<li></li>|
+            <li><a href="#">España<li></li>|
+            <li><a href="#">Estados Unidos<li></li>|
+            <li><a href="#">Francia<li></li>|
+            <li><a href="#">India<li></li>|
+            <li><a href="#">Italia<li></li>|
+            <li><a href="#">Japon<li></li>|
+            <li><a href="#">Paises/Regiones Bajos<li></li>|
+            <li><a href="#">Reino unido<li></li>|
+            <li><a href="#">Singapur<li></li>|
+            <li><a href="#">Turquía<li></li>|
+            <li><a href="#">Y también:Amazon Web Services</li></li>
+            </ul>
+            
+          </nav>
+          <h2 style="color: white; text-align: center;">Pagina creada con fines educativos</h2>
+        </footer>
+
+        <script>
+
+          let carrito = [];
+
+          const nombreLogueado = localStorage.getItem('nombre');
+          const nombre = document.querySelector('#nombre_logueado');
+          const usuario = document.querySelector('#usuario_logueado');
+          const contenidoCarrito = document.querySelector('#bodyCarrito');
+          const btnAgregarCarrito = document.querySelector('#agregar-carrito');
+          const btnCarrito = document.querySelector('#btnCarrito');
+          const uiCarrito = document.querySelector('#carrito');
+          const vaciarCarrito = document.querySelector('#vaciar-carrito');
+          const botonesCarrito = document.querySelector('#botones-carrito');
+
+          let cantidadProducto = 1;
+
+          vaciarCarrito.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            carrito = [];
+            localStorage.removeItem('carrito');
+            window.location.reload(); 
+          })
+
+          btnCarrito.addEventListener('mouseover', () =>{
+            uiCarrito.style.display = 'block';
+          });
+          btnCarrito.addEventListener('mouseout', () =>{
+            uiCarrito.style.display = 'none';
+          });
+          uiCarrito.addEventListener('mouseover', () =>{
+            uiCarrito.style.display = 'block';
+          });
+          uiCarrito.addEventListener('mouseout', () =>{
+            uiCarrito.style.display = 'none';
+          });
+
+          let carritoLocal = localStorage.getItem('carrito');
+          console.log(carritoLocal);
+
+          let strProductoCarrito = '';
+          if(!carritoLocal){
+            if(carrito.length === 0){
+            let h3 = document.createElement('h3');
+            h3.style.color = "black";
+            strProductoCarrito = 'No hay productos en el carrito, empiece a agregar sus productos';
+            h3.innerHTML = strProductoCarrito;
+              
+              contenidoCarrito.append(h3);
+              botonesCarrito.style.display="none";
+            }
+          }
+          
+
+          if(carritoLocal){
+            let carritoLocalJson = JSON.parse(carritoLocal);
+            if(carritoLocalJson){
+              carrito = carritoLocalJson;
+            }
+
+            botonesCarrito.style.display="flex";
+
+            if(carrito.length === 0){
+              
+            }else{
+              carritoLocalJson.forEach((producto) => {
+              strProductoCarrito = '';
+              strProductoCarrito += `<td><img src=http://143.244.157.68:8080/api/productos/imagen/${producto.id} style='width: 100px'></td>`;
+              strProductoCarrito += '<td>' + producto.nombre.substr(0,15) + '...</td>';
+              strProductoCarrito += '<td>' + producto.precio + '</td>';
+
+              //strProductoCarrito += '<td style="display:flex"><button style="background-color:red;"> - </button> ' + producto.cantidad + ' <button style="background-color:green;" onclick="aumentarCantidad(\''+producto.id+'\')"> + </button></td>';
+              strProductoCarrito += '<td>' + producto.cantidad + '</td>';
+              strProductoCarrito += '<td>' + producto.total + '</td>';
+
+              let row = document.createElement('tr');
+              row.innerHTML = strProductoCarrito;
+              contenidoCarrito.appendChild(row);
+            });
+            }
+            
+          
+          }
+
+          const aumentarCantidad = (id) => {
+            
+            carrito = carrito.map(productoCarrito => {
+              if(productoCarrito.id == id){
+                console.log(productoCarrito);
+                productoCarrito.cantidad++;
+                productoCarrito.total = productoCarrito.total * productoCarrito.cantidad;
+                return productoCarrito;
+              }else{
+                return productoCarrito;
+              }
+            });
+
+            /* if(carritoLocal){
+            let carritoLocalJson = JSON.parse(carritoLocal);
+              
+              if(carritoLocalJson){
+                carrito = carritoLocalJson;
+              }
+              
+
+              botonesCarrito.style.display="flex";
+
+              if(carrito.length === 0){
+                
+              }else{
+                carritoLocalJson.forEach((producto) => {
+                  strProductoCarrito = '';
+                  strProductoCarrito += `<td><img src=http://localhost:8080/api/productos/imagen/${producto.id} style='width: 100px'></td>`;
+                  strProductoCarrito += '<td>' + producto.nombre.substr(0,15) + '...</td>';
+                  strProductoCarrito += '<td>' + producto.precio + '</td>';
+
+                  strProductoCarrito += '<td style="display:flex"><button style="background-color:red;"> - </button> ' + producto.cantidad + ' <button style="background-color:green;" onclick="aumentarCantidad('+ producto.id +')"> + </button></td>';
+
+                  let row = document.createElement('tr');
+                  row.innerHTML = strProductoCarrito;
+                  console.log(row);
+                  contenidoCarrito.appendChild(row);
+                });
+              }
+            
+          
+            } */
+          }
+
+          
+
+          const agregarCarrito = () => {
+            limpiarHTML();
+            let strProductoCarrito = '';
+            const productoCarrito = localStorage.getItem('producto');
+            const productoCarritoJson = JSON.parse(productoCarrito);
+            const existe = carrito.some( producto => producto.id === productoCarritoJson._id);
+            const producto ={
+                id:productoCarritoJson._id,
+                nombre:productoCarritoJson.nombre,
+                precio:productoCarritoJson.precio,
+                cantidad:1,
+                total: productoCarritoJson.precio
+            }
+            if(existe){
+              carrito = carrito.map(productoCarrito => {
+                if(productoCarrito.id === producto.id){
+                    productoCarrito.cantidad++;
+                
+                    productoCarrito.total=productoCarrito.precio * productoCarrito.cantidad;
+                    alert('Se modifico la cantidad del producto en el carrito!');
+                    return productoCarrito; // retorna el objeto actualizado
+                }else{
+                    return productoCarrito; // retorna los objetos que no son los duplicados
+                }
+              });
+            }else{
+              
+              carrito.push(producto);
+              alert('Producto añadido al carrito!');
+            }
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            let carritoLocal = localStorage.getItem('carrito');
+            console.log(carritoLocal);
+
+            let carritoLocalJson = JSON.parse(carritoLocal);
+            console.log(carritoLocalJson);
+            botonesCarrito.style.display="flex";
+
+            
+            
+            carritoLocalJson.forEach((producto) => {
+              strProductoCarrito = '';
+              strProductoCarrito += `<td><img src=http://143.244.157.68:8080/api/productos/imagen/${producto.id} style='width: 100px'></td>`;
+              strProductoCarrito += '<td>' + producto.nombre.substr(0,15) + '...</td>';
+              strProductoCarrito += '<td>' + producto.precio + '</td>';
+              strProductoCarrito += '<td style="display:flex">' + producto.cantidad + '</td>';
+              strProductoCarrito += '<td>' + producto.total + '</td>';
+
+              let row = document.createElement('tr');
+              row.innerHTML = strProductoCarrito;
+              contenidoCarrito.appendChild(row);
+            })
+          }
+
+          // Funciones reutilizables
+          const actualizarListaCarrito = (listaCarrito) => {
+            listaCarrito.forEach((producto) => {
+              strProductoCarrito = '';
+              strProductoCarrito += `<td><img src=http://143.244.157.68:8080/api/productos/imagen/${producto.id} style='width: 100px'></td>`;
+              strProductoCarrito += '<td>' + producto.nombre.substr(0,15) + '...</td>';
+              strProductoCarrito += '<td>' + producto.precio + '</td>';
+
+              strProductoCarrito += '<td style="display:flex"><button style="background-color:red;"> - </button> ' + producto.cantidad + ' <button style="background-color:green;" onclick="aumentarCantidad(\''+producto.id+'\')"> + </button></td>';
+
+              let row = document.createElement('tr');
+              row.innerHTML = strProductoCarrito;
+              contenidoCarrito.appendChild(row);
+            });
+          }
+
+          if(nombreLogueado != null) {
+            usuario.innerHTML = `<a onclick='cerrarSesion()' style="cursor: pointer"><i> Hola, ${ nombreLogueado } </p><h5> Cuentas y Listas</h5></i></a>`;
+          }else{
+            usuario.innerHTML = '<a href="login.html"><i> Hola, Identificate </p><h5> Cuentas y Listas</h5></i></a>';
+          }
+          
+          const cerrarSesion = () => {
+            localStorage.removeItem('nombre');
+            location.href ="http://143.244.157.68/";
+          }
+
+          var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+          };
+
+          const subMenu = document.querySelector('#submenu');
+          let strMenu = '';
+
+          fetch("http://143.244.157.68:8080/api/categorias", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+              resultJson = JSON.parse(result);
+
+
+              resultJson.categorias.forEach( (categoria) => {
+                strMenu += `<li onclick=guardarCategoria('${ categoria._id }')><a href="productos.html">${ categoria.nombre }<a/></li>`;
+
+                subMenu.innerHTML = strMenu;
+              });
+
+
+
+              
+
+              
+              
+
+            })
+            .catch(error => console.log('error', error));
+
+            const guardarCategoria = (id) => {
+              localStorage.setItem('idCategoria', id.toString());
+              //location.href ="file:///C:/Users/Admin/Desktop/Proyectos%20Web/amazon/equipo4-3-amazon/front-amazon/productos.html";
+            }
+
+
+            var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+
+            const productoUl = document.querySelector('#producto');
+
+            let strProducto = "";
+
+            const idProducto = localStorage.getItem('idProducto');
+
+            fetch("http://143.244.157.68:8080/api/productos/"+ idProducto +"", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                
+                const resultJson = JSON.parse(result);
+                localStorage.setItem('producto', JSON.stringify(resultJson.producto));
+                console.log(resultJson.producto.nombre);
+                const { _id, nombre, precio } = resultJson.producto;
+
+                strProducto += `<li><img src='http://143.244.157.68:8080/api/productos/imagen/${ _id }' style='width: 100px'></li>`;
+                strProducto += `<li style="color:black">${ nombre }</li>`;
+                strProducto += `<li style="color:black">$${ precio }</li>`;
+                strProducto += `<li class="boton-carrito"><button onclick="agregarCarrito()">Agregar al carrito</button></li>`;
+
+                productoUl.innerHTML = strProducto;
+                
+            })
+            .catch(error => console.log('error', error));
+
+
+            function limpiarHTML() {
+                // Forma lenta
+                // contenedorCarrito.innerHTML = '';
+
+
+                while(contenidoCarrito.firstChild) {
+                    contenidoCarrito.removeChild(contenidoCarrito.firstChild)
+                }
+            }
+
+        </script>
+
+     </body>
+</html>

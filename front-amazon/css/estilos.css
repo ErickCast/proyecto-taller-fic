@@ -1,0 +1,297 @@
+* {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	box-sizing: border-box;
+	color: white ;
+	font-family: Arial , Helvetica , sans-serif;
+	
+}
+nav {
+
+	background-color: #151515 ;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 0px 0px 10px;
+}
+.dflex{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	background: #0000;
+	padding: 0;
+	margin: 0;
+}
+
+.item:hover{
+	border: 1px solid #fff;
+	border-radius: 1px;
+	margin: 3px;
+}
+
+.logo{
+
+  	height: -30px;
+	width: 170px;
+	border-radius: 1px;
+	margin: 3px;
+}
+a{
+	display: flex;
+	text-align: center;
+	align-items: center;
+	text-decoration: none;
+}
+a: hover{
+	border: 1px solid #fff;
+	margin: -1px;
+	border-radius: 3px;
+}
+a span{
+	font-size: 14px;
+	margin-left: -10px;
+}
+p{
+
+	font-size: 12px;
+	line-height: 15;
+}
+.item i{
+	padding: 0 15px;
+	text-align: center;
+}
+.item:hover{
+	border: 1px solid #fff;
+	border-radius: 2px;
+	margin: -1px;
+}
+nav input{
+	width: 2000px;
+	padding: 10px;
+	font-size: 17px;
+	border: none;
+	outline: none;
+	color: #000;
+}
+nav button{
+	padding: 10px 10px;
+	color: #000;
+	font-size: 17px;
+	border: none;
+	border-radius: 5px 0 0 5px;
+	cursor: pointer;
+	
+}
+nav .all{
+	background: #ddd;
+	width: 950px;
+	border-radius:  5px 0 0 5px;
+}
+nav .search{
+	padding: 10px 5px;
+	width: 300px;
+	margin: -2px;
+	background: rgb(247, 155, 80);
+	border-radius: 0 10px 10px 0; 
+}
+.subnavegation{
+	background-color: #232f3e;
+	padding: 0px 5px; 
+}
+.submenu{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+ul li{
+    
+	list-style: none;
+	font-weight: 500;
+	padding: 1px 10px;
+	font-size: 14px;
+}
+nav .submenu i{
+	font-size: 16px;
+}
+.li{
+
+	margin: -5px;	
+}
+ul li :hover{
+	border: 1px solid #fff;
+	border-radius: 3px;
+	margin: 2px;
+}
+.container{
+	max-width: 1170px;
+    margin: auto;
+    bottom: 0;
+
+   
+        
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background: #24262b;
+	position: absolute;
+	
+	margin-bottom: 0px;
+
+	
+}
+.footer-col{
+	width: 25%;
+	text-align: center;
+	padding: 10px 20px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 30px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4: : before{
+	content: '' ;
+	position: absolsute;
+	left: 50px;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+}
+.footer-col ul li : not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 500;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.pagina{
+	background-color: #232f3e;
+	padding: 15px 0;
+
+}
+.paises{
+	
+	background-color: #24262b;
+	padding: 25px 5px;
+	font-weight: 200;
+	font-size: 15px;
+}
+.submenuu{
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	letter-spacing: -1px;
+}
+nav .submenuu i{
+	font-size: 15px;
+	margin: auto;
+}
+.boton-carrito{
+	width: 25%;
+	color: black;
+}
+.boton-carrito button{
+	color: black;
+}
+.carrito{
+	width: 180px;
+	display: none;
+}
+.carrito {
+	background-color: white;
+
+	
+	
+	
+}
+.tabla-carrito{
+	background-color: white;
+}
+.tabla-carrito thead tr th{
+	color: black;
+}
+.tabla-carrito tbody tr td{
+	color: black;
+}
+.botones-carrito{
+	display: flex;
+	
+}
+.botones-carrito a{
+	color: black;
+	width: 50%;
+}
+.container1{
+	width: 90%;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3em;
+	margin-bottom: 3em;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-gap: 30px;
+	
+}
+.item1{
+	background-color: #fff;
+cursor: pointer;
+box-shadow: 0 0 5px 0 rgba(0,0,0,.895);
+transition: all 300ms;
+}
+.item1::after {
+	content: "";
+	background-color: 
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left:0;
+	transform: all 300ms;
+	opacity: 0;
+}
+.item1:hover:after{
+	opacity: 1;
+	transform: scale(1);  
+}
+.item1:hover{
+	transform: scale(1.05);
+}
+.item1-img{
+	max-width: 100%;
+	display: block;
+}
+@media screen and (min-width: 590px) {
+	.container1{
+grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (min-width: 960px) {
+	.container1{
+grid-template-columns: repeat(3, 1fr);
+	}
+}
+h3{
+	color: black;
+}
+p{
+	color: blue;
+}

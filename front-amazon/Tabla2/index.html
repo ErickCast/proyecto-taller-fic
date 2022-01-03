@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <h1>Carrito de compras</h1>
+  <table class="table table-bordered table-responsive">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody id="contenido-carrito">
+      
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-success" onclick="finalizarPedido()">Finalizar pedido</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let carritoJSON = JSON.parse(localStorage.getItem('carrito'));
+  
+  let carrito = [];
+  const contenidoCarrito = document.querySelector("#contenido-carrito");
+  let strProductoCarrito = "";
+  if(carritoJSON){
+    carrito = carritoJSON;
+
+    if(carrito.length === 0) {
+
+    }else{
+      carritoJSON.forEach((producto) => {
+        strProductoCarrito = '';
+        strProductoCarrito += `<td align="center"><img src=http://143.244.157.68:8080/api/productos/imagen/${producto.id} style='width: 100px'></td>`;
+        strProductoCarrito += '<td>' + producto.nombre.substr(0,15) + '...</td>';
+        
+
+        //strProductoCarrito += '<td style="display:flex"><button style="background-color:red;"> - </button> ' + producto.cantidad + ' <button style="background-color:green;" onclick="aumentarCantidad(\''+producto.id+'\')"> + </button></td>';
+        strProductoCarrito += '<td>' + producto.cantidad + '</td>';
+        strProductoCarrito += '<td>' + producto.precio + '</td>';
+        strProductoCarrito += '<td>' + producto.total + '</td>';
+
+        let row = document.createElement('tr');
+        row.innerHTML = strProductoCarrito;
+        contenidoCarrito.appendChild(row);
+      })
+    }
+  }
+
+  const finalizarPedido = () =>{
+    let usuarioJSON = JSON.parse(localStorage.getItem('usuario'));
+    /* var myHeaders = new Headers();
+    myHeaders.append("x-token", localStorage.getItem("tokenUser")); */
+    let productosJSON = "[ \r\n        ";
+    let i = 1;
+    let totalCosto = 0;
+    carritoJSON.forEach((producto) => {
+      if(i== carritoJSON.length){
+        productosJSON += "{\r\n            \"id\" : \""+ producto.id +"\",\r\n            \"nombre\" : \""+ producto.nombre +"\",\r\n            \"precio\" : "+ producto.precio +",\r\n            \"promocion\" : 0,\r\n            \"stock\" : 3,\r\n            \"imagen\" : \"4cb88a64-10ca-405b-a56a-beea0683c943.jpg\"\r\n        }";
+      }else{
+        productosJSON += "{\r\n            \"id\" : \""+ producto.id +"\",\r\n            \"nombre\" : \""+ producto.nombre +"\",\r\n            \"precio\" : "+ producto.precio +",\r\n            \"promocion\" : 0,\r\n            \"stock\" : 3,\r\n            \"imagen\" : \"4cb88a64-10ca-405b-a56a-beea0683c943.jpg\"\r\n        },";
+        i++;
+      }
+      totalCosto+=producto.total;
+    });
+    productosJSON += "\r\n    ]";
+
+    var raw = "{\r\n    \"pais\" : \"Mexico\",\r\n    \"estado\" : \"Sinaloa\",\r\n    \"municipio\" : \"Culiacan\",\r\n    \"domicilio\" : \"Av. lorem ipsum\",\r\n    \"costo\" : "+totalCosto+",\r\n    \"productos\" : "+ productosJSON +"\r\n}";
+    console.log(raw);
+    var requestOptions = {
+      method: 'POST',
+      headers:{
+          "x-token": localStorage.getItem("tokenUser"),
+          "content-type":"application/json; charset=UTF-8"
+      },
+      body: raw,
+      redirect: 'follow'
+    };
+
+    fetch("http://143.244.157.68:8080/api/ordenes", requestOptions)
+      .then(response => {
+        response.text();
+        localStorage.removeItem("carrito");
+      })
+      .then(result => {
+        console.log(result);
+        localStorage.removeItem("carrito");
+      })
+      .catch(error => console.log('error', error));
+
+      location.href ="http://143.244.157.68/";
+  }
+</script>
+</body>
+</html>

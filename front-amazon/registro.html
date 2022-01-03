@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/registro.css">
+    <title>Registro</title>
+</head>
+<body>
+    <form onsubmit="return false;" id="formulario_registro">
+        <div class="logo"><img src="img/logoama.png" alt=""></div>
+        <h4>Crear Cuenta</h4>
+        <p id="mensaje"></p>
+        
+        Tu nombre<input class="inpt" type="text" id="txtNombre" name="nombre">
+        Correo electrónico<input class="inpt" type="text" id="txtCorreo" name="correo">
+        Contraseña<input class="inpt" type="password" id="txtPassword" name="contraseña">
+        Vuelve a escribir la contraseña<input class="inpt" type="password" name="contraseña2">
+
+        <input class="boton" type="submit" value="Continuar" onclick="registrar()"><br>
+
+        <p>Al crear una cuenta, aceptas las Condiciones de Uso y el Aviso de Privacidad de Amazon.</p>
+        <p>¿Ya tienes una cuenta?<a href="login.html">Iniciar sesión</a></p> 
+    </form>
+
+
+    <script>
+
+        
+
+        const registrar = () =>{
+            const formularioRegistro = document.querySelector('#formulario_registro');
+            const nombre = document.querySelector('#txtNombre').value;
+            const correo = document.querySelector('#txtCorreo').value;
+            const password = document.querySelector('#txtPassword').value;
+
+            const mensaje = document.querySelector('#mensaje');
+
+            var raw = `{\r\n    \"nombre\": \"${ nombre }\",\r\n    \"telefono\": \"\",\r\n    \"correo\": \"${ correo }\",\r\n    \"password\": \"${ password }\",\r\n    \"estado\": \"\",\r\n    \"ciudad\": \"\",\r\n    \"domicilio\": \"\",\r\n     \"rol\": \"USER_ROLE\"\r\n}`;
+
+
+            var requestOptions = {
+            headers:{
+                "content-type":"application/json; charset=UTF-8"
+            },
+            body: raw,
+            method: 'POST'
+            //redirect: 'follow'
+            };
+
+            console.log(requestOptions);
+
+            fetch("http://143.244.157.68:8080/api/usuarios/", requestOptions)
+            .then(response => response.text())
+            .then((result) => {
+                console.log(result);
+                const datos = JSON.parse(result);
+                console.log(datos);
+                if(datos.resultado == 1){
+                    mensaje.innerHTML=`<strong style='color:green; font-size:19px'>${datos.msg}, Inicie sesion <a href='login.html'>aqui</a>.</strong>`
+                    formularioRegistro.reset();
+                }else{
+                    mensaje.innerHTML=`<strong style='color:red; font-size:19px'>${datos.msg}, los datos no son validos.</strong>`
+                }
+                
+            })
+            .catch(error => console.log('error', error));
+        }
+        
+    </script>
+</body>
+</html>

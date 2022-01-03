@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/registro.css">
+    <title>Iniciar sesion</title>
+</head>
+<body>
+    <form onsubmit="return false;" id="formulario_login">
+        <div class="logo"><img src="img/logoama.png" alt=""></div>
+        <h4>Iniciar sesion</h4>
+        <p id="mensaje"></p>
+
+        Correo electrónico<input class="inpt" type="text" id="txtCorreo" name="correo">
+        Contraseña<input class="inpt" type="password" name="contraseña">
+        Vuelve a escribir la contraseña<input class="inpt" type="password" id="txtPassword" name="contraseña2">
+
+        <input class="boton" type="submit" value="Ingresar" onclick="login()"><br>
+
+        <p>¿No tienes una cuenta?<a href="registro.html">Crea una</a></p> 
+
+    </form>
+
+
+    <script>
+
+        const login = () =>{
+            const formularioLogin = document.querySelector('#formulario_login');
+            const correo = document.querySelector('#txtCorreo').value;
+            const password = document.querySelector('#txtPassword').value;  
+
+            const mensaje = document.querySelector('#mensaje');
+            mensaje.innerHTML ="";
+
+            var raw = `{\r\n    \"correo\": \"${correo}\",\r\n    \"password\": \"${password}\"\r\n}`;
+
+            var requestOptions = {
+            headers:{
+                "content-type":"application/json; charset=UTF-8"
+            },
+            method: 'POST',
+            body: raw,
+            //redirect: 'follow'
+            };
+
+            fetch("http://143.244.157.68:8080/api/auth/login", requestOptions)
+            .then(response => response.text())
+            .then((result) => {
+                
+                const datos = JSON.parse(result);
+                if(datos.resultado == 1){
+                    localStorage.setItem('usuario', JSON.stringify(datos.usuario));
+                    localStorage.setItem('tokenUser', datos.token);
+                    formularioLogin.reset();
+                    location.href ="http://143.244.157.68/";
+                    
+                }else{
+                    mensaje.innerHTML=`<strong style='color:red; font-size:19px'>${datos.msg}, los datos no son validos.</strong>`;
+                    
+                }
+                
+                console.log(result);
+            })
+            .catch(error => console.log('error', error));
+        }
+        
+    </script>
+</body>
+</html>
