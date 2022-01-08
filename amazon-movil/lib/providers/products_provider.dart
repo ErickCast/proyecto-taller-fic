@@ -13,6 +13,7 @@ class ProductsProvider extends ChangeNotifier {
   String _baseUrl = 'http://143.244.157.68:8080/api/';
 
   List<Producto> productos = [];
+  List<Producto> productosByUser = [];
   late Producto selectedProduct;
   bool isSaving = false;
 
@@ -46,6 +47,18 @@ class ProductsProvider extends ChangeNotifier {
     final productosResponse = ProductoResponse.fromJson(response.body);
 
     return productosResponse.productos;
+
+  }
+
+  getProductsByUser(id) async {
+    var url = Uri.parse('http://143.244.157.68:8080/api/productos/getProductosByUsuario/$id');
+
+    final response = await http.get( url );
+    final productosResponse = ProductoResponse.fromJson(response.body);
+
+    this.productosByUser = productosResponse.productos;
+
+    notifyListeners();
 
   }
 
@@ -101,6 +114,7 @@ class ProductsProvider extends ChangeNotifier {
     print(product.imagen);
 
     http.StreamedResponse response = await request.send();
+    print(response);
 
     if (response.statusCode == 200) {
       print(await response.stream.bytesToString());

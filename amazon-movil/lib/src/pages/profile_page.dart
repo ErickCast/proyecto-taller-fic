@@ -55,6 +55,17 @@ Widget withUser(BuildContext context, String usuario) {
         ],
       )
       :
+      (user["usuario"]["rol"] == "VENTAS_ROLE") ?
+        Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton( onPressed: (){
+            Navigator.push(context , MaterialPageRoute(builder: (context) => AdminProductPage()));
+          }, child: Text('Mis productos en venta', style: TextStyle(color: Colors.black),), style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade300), ),),
+          
+        ],
+      )
+      :
       Container(),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

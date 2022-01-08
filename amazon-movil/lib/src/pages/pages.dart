@@ -7,6 +7,8 @@ export 'package:amazon/src/pages/products_by_category.dart';
 export 'package:amazon/src/pages/register_page.dart';
 export 'package:amazon/src/pages/category_form_page.dart';
 export 'package:amazon/src/pages/product_form_page.dart';
+export 'package:amazon/src/pages/configuration_page.dart';
+
 
 
 

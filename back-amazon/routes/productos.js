@@ -50,7 +50,7 @@ router.post('/', [
 
 router.put('/:id', [
     validarJWT,
-    esAdminRole,
+    esAdminVentasRole,
     check('id', 'No es un id de Mongo').isMongoId(),
     check('id').custom( existeProducto ),
     validarCampos
@@ -58,7 +58,7 @@ router.put('/:id', [
 
 router.delete('/:id', [
     validarJWT,
-    esAdminRole,
+    esAdminVentasRole,
     check('id', 'No es un ID valido').isMongoId(),
     check('id').custom( existeProducto ),
     validarCampos

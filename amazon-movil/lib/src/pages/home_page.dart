@@ -2,6 +2,7 @@
 import 'package:amazon/providers/providers.dart';
 import 'package:amazon/search/search_delegate.dart';
 import 'package:amazon/src/pages/cart_page.dart';
+import 'package:amazon/src/pages/pages.dart';
 import 'package:amazon/src/pages/profile_page.dart';
 import 'package:amazon/src/pages/register_page.dart';
 import 'package:amazon/widgets/custom_navigatorbar.dart';
@@ -163,7 +164,7 @@ class _HomePageState extends State<HomePage> {
       case 2:
         return CartPage();
       default:
-        return Text('Holamundo');
+        return ConfigurationPage();
     }
 }
 }

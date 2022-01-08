@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:amazon/models/models.dart';
 import 'package:amazon/providers/providers.dart';
+import 'package:amazon/share_prefs/preferencias_usuario.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -34,9 +37,19 @@ class AdminProductPage extends StatelessWidget {
 }
 
 Widget listadoProductos(BuildContext context) {
-
+  final prefs = new PreferenciasUsuario();
   final productosProvider = Provider.of<ProductsProvider>(context, listen: true);
   List<Producto> productos = productosProvider.productos;
+  var usuarioJson = (prefs.usuario != "") ? jsonDecode(prefs.usuario) : [];
+  var user = jsonDecode(usuarioJson);
+  if(user["usuario"]["rol"] == "VENTAS_ROLE"){
+    productosProvider.getProductsByUser(user["usuario"]["uid"]);
+    productos = productosProvider.productosByUser;
+    
+  }else{
+    productos = productosProvider.productos;
+  }
+  
 
 
       

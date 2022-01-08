@@ -68,18 +68,22 @@ class _ProductFormBody extends StatelessWidget {
                   child: IconButton(
                     onPressed: () async{
                       // Usar la camara
+                      final selection = await OptionImagePicker(context);
+                      if(selection == null) return;
                       final picker = new ImagePicker();
                       final XFile? pickedFile = await picker.pickImage(
-                        source: ImageSource.camera,
+                        source: (selection == 1)
+                            ? ImageSource.camera
+                            : ImageSource.gallery,
                         imageQuality: 100
                       );
 
                       if( pickedFile == null ){
-                        print("No selecciono nada");
+                        
                         return;
                       }
 
-                      print('Tenemos imagen ${pickedFile.path}' );
+                      
                       productsProvider.updateSelectedProductImage(pickedFile.path);
                       productForm.product.imagen = pickedFile.path;
                     },
@@ -278,5 +282,64 @@ class _ProductFormState extends State<_ProductForm> {
         blurRadius: 5
       )
     ]
+  );
+}
+
+dynamic OptionImagePicker(context) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.grey[100],
+        title: Text('Seleccione una imagen o tome una fotografía'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                
+                children: [
+                  Column(
+                    children: [
+                      Icon(Icons.camera_alt, size: 50, color: Colors.indigo),
+                      
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Icon(Icons.storage, size: 50, color: Colors.indigo),
+                      
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Cámara',
+                style: TextStyle(fontSize: 17, color: Colors.indigo)),
+            onPressed: () {
+              Navigator.of(context).pop(1);
+            },
+          ),
+          TextButton(
+            child: const Text('Galería',
+                style: TextStyle(fontSize: 17, color: Colors.indigo)),
+            onPressed: () {
+              Navigator.of(context).pop(2);
+            },
+          ),
+          TextButton(
+            child: Icon(Icons.close_rounded, color: Colors.red, size: 40),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
   );
 }

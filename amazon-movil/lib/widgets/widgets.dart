@@ -4,4 +4,3 @@ export 'package:amazon/widgets/product_slider.dart';
 
 
 
-

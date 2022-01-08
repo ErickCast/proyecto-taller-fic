@@ -11,7 +11,7 @@
     <body>
       <header>
         <nav>
-        <!--<div class="dflex"><a href="#"><img src="img/amazonlogo.png" align="left" class="logo"/><span></span></a>-->
+        <div class="dflex"><a href="#"><img src="img/amazonlogo.png" align="left" class="logo"/><span></span></a>
            
            <nav>
             <div class="item">
@@ -28,13 +28,23 @@
                                   </button>
                                    <input type="text" id="inputBuscar"><button class="search" onclick="buscar();">Buscar</button>
 
-                                          <nav class=" registros">
+                                          <nav class="registros">
                                             <div class="item" id="usuario_logueado">
-                                               <a href="login.html"><i> Hola, <span id="nombre_logueado"></span> </p><h5> Cuentas y Listas</h5></i></a>
+                                               <a href="login.html" ><i > Hola, <span id="nombre_logueado"></span> </p><h5> Cuentas y Listas</h5></i></a>
                                                
-                                               </div>
+                                            </div>
+                                            <div class="menu_usuario" id="menu_usuario" style="position:absolute; right:260px; top: 55px; background-color: white; width: 100px; display: none;">
+                                              <ul>
+                                                <div id="administracion">
+                                                  <li><a href="AdCategoria.html">Administrar Categorias</a></li>
+                                                  <li><a href="AdProductos.html">Administrar Productos</a></li>
+                                                </div>
+                                                
+                                                <li><a href="#" onclick='cerrarSesion()'>Cerrar sesion</a></li>
+                                              </ul>
+                                             </div>
                                             <div class="item">
-                                               <button class="dflex" type="button"><i> Devoluciones </p><h5> y Pedidos </h5></button>
+                                               <a href="pedidos.html"><button class="dflex" type="button"><i> Devoluciones </p><h5> y Pedidos </h5></button></a>
                                                    
                                               </div>
                                           
@@ -94,7 +104,10 @@
         </nav>
         </header>
       <body>
+
+        <h1 style="color: black; text-align: center;">Sitio creado con fines educativos</h1>
                  <div class="container1">
+                   
            <div class="item1">
              <img src="imgproductos/bebes.jpeg" width="200" height="200" alt="" class="item1-img" >
              <div class="item1-text">
@@ -240,13 +253,44 @@
           const contenidoCarrito = document.querySelector('#bodyCarrito');
           const btnCarrito = document.querySelector('#btnCarrito');
           const uiCarrito = document.querySelector('#carrito');
+          const botonUsuario = document.querySelector("#usuario_logueado");
+          const menuUsuario = document.querySelector("#menu_usuario");
+          const btnsAdministracion = document.querySelector("#administracion")
 
           btnCarrito.addEventListener('mouseover', () =>{
             uiCarrito.style.display = 'block';
+            
           });
           btnCarrito.addEventListener('mouseout', () =>{
             uiCarrito.style.display = 'none';
+            
           });
+          console.log(botonUsuario);
+          console.log(menuUsuario);
+
+          
+          if(usuario){
+            if( usuarioLogueado.rol != "ADMIN_ROLE"){
+              btnsAdministracion.innerHTML = "";
+            }
+            botonUsuario.addEventListener('mouseover', () =>{
+            menuUsuario.style.display = 'block';
+            });
+            botonUsuario.addEventListener('mouseout', () =>{
+              menuUsuario.style.display = 'none';
+            });
+            menuUsuario.addEventListener('mouseover', () =>{
+              menuUsuario.style.display = 'block';
+            });
+            menuUsuario.addEventListener('mouseout', () =>{
+              menuUsuario.style.display = 'none';
+            });
+          } 
+
+          
+
+          
+          
 
           localStorage.removeItem('termino');
 
@@ -279,7 +323,7 @@
           }
 
           if(usuarioLogueado != null) {
-            usuarioHTML.innerHTML = `<a onclick='cerrarSesion()' style="cursor: pointer"><i> Hola, ${ usuarioLogueado.nombre } </p><h5> Cuentas y Listas</h5></i></a>`;
+            usuarioHTML.innerHTML = `<a style="cursor: pointer"><i> Hola, ${ usuarioLogueado.nombre } </p><h5> Cuentas y Listas</h5></i></a>`;
           }else{
             usuarioHTML.innerHTML = '<a href="login.html"><i> Hola, Identificate </p><h5> Cuentas y Listas</h5></i></a>';
           }
