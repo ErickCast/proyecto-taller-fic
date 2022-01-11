@@ -48,10 +48,10 @@ Widget withUser(BuildContext context, String usuario) {
         children: [
           ElevatedButton( onPressed: (){
             Navigator.push(context , MaterialPageRoute(builder: (context) => AdminCategoryPage()));
-          }, child: Text('Administrar Categorias', style: TextStyle(color: Colors.black),), style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade300), ),),
+          }, child: Text('Admin Categorias', style: TextStyle(color: Colors.black),), style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade300), ),),
           ElevatedButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => AdminProductPage()));
-          }, child: Text('Administrar Productos', style: TextStyle(color: Colors.black)), style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade300), ),)
+          }, child: Text('Admin Productos', style: TextStyle(color: Colors.black)), style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade300), ),)
         ],
       )
       :

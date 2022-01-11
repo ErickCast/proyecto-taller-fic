@@ -2,10 +2,10 @@
 let usuario = JSON.parse(localStorage.getItem('usuario'));
 if(usuario){
   if( usuario.rol == "USER_ROLE" || usuario == null ){
-    location.href ="http://143.244.157.68/";
+    location.href ="http://talleramzfic.ddns.net/";
   }
 }else{
-  location.href ="http://143.244.157.68/";
+  location.href ="http://talleramzfic.ddns.net/";
 }
 
 

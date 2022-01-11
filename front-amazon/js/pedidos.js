@@ -1,7 +1,7 @@
 let usuario = JSON.parse(localStorage.getItem('usuario'));
 if(!usuario){
   
-  location.href ="http://143.244.157.68/";
+  location.href ="http://talleramzfic.ddns.net/";
 }
 const bodyPedidos = document.querySelector("#bodyPedidos");
 

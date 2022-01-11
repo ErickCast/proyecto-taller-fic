@@ -5,43 +5,21 @@
     <meta http-equiv="X-ua-compartible" content="IE=edge">
     <meta name="amazon" content="width=device=width, initial-scale=1.0">
     <title>Producto</title>
-    <link rel="stylesheet" href="css/estilos.css"/>
-    <link rel="stylesheet" type="css/estilos.css" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
-
-    <!-- JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
-    <!-- Semantic UI theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
-    <!-- Bootstrap theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-
-    <!-- 
-    RTL version
-    -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
-    <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
-    <!-- Semantic UI theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
-    <!-- Bootstrap theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/producto.css" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
+
     <body>
       <header>
         <nav>
-        <div class="dflex"><a href="http://143.244.157.68/"><img src="img/amazonlogo.png" align="left" class="logo"/><span></span></a>
+        <div class="dflex"><a href="index.html"><img src="img/amazonlogo.png" align="left" class="logo"/><span></span></a>
            
            <nav>
             <div class="item">
                <button class="dflex" type="button"><i> Hola, </p><h5>Elige tu Direccion</h5></button>
             </div>
                 </div>
-
+      
                         <div class="searchBox dflex">
                             <div class="box">
                                 <div class="dflex">
@@ -49,46 +27,55 @@
                                   <button class="all" type="button"> Todos los Departamentos 
                                      
                                   </button>
-                                   <input type="text"><button class="search" type="submit">Buscar</button>
-
-                                          <nav class=" registros">
+                                   <input type="text" id="inputBuscar"><button class="search" onclick="buscar();">Buscar</button>
+      
+                                          <nav class="registros">
                                             <div class="item" id="usuario_logueado">
-                                               <a href="login.html"><i> Hola, <span id="nombre_logueado"></span> </p><h5> Cuentas y Listas</h5></i></a>
+                                               <a href="login.html" ><i > Hola, <span id="nombre_logueado"></span> </p><h5> Cuentas y Listas</h5></i></a>
                                                
-                                               </div>
+                                            </div>
+                                            <div class="menu_usuario" id="menu_usuario" style="position:absolute; right:260px; top: 55px; background-color: white; z-index: 1000; width: 100px; display: none;">
+                                              <ul>
+                                                <div id="administracion">
+                                                  <li><a href="AdCategoria.html">Administrar Categorias</a></li>
+                                                  <li><a href="AdProductos.html">Administrar Productos</a></li>
+                                                </div>
+                                                
+                                                <li><a href="#" onclick='cerrarSesion()'>Cerrar sesion</a></li>
+                                              </ul>
+                                             </div>
                                             <div class="item">
-                                               <button class="dflex" type="button"><i> Devoluciones </p><h5> y Pedidos </h5></button>
+                                               <a href="pedidos.html"><button class="dflex" type="button"><i> Devoluciones </p><h5> y Pedidos </h5></button></a>
                                                    
                                               </div>
                                           
                                               <div class="item">
-                                                <button class="dflex" id="btnCarrito" type="button"><i> Carrito </p><h5> </h5></i></button>
-                                                <div id="carrito" class="carrito" style="position:absolute; right:200px">
+                                             <button class="dflex" id="btnCarrito" type="button"><i> Carrito </p><h5> </h5></i></button>
+                                             <div id="carrito" class="carrito" style="position:absolute; right:150px; top: 80px; z-index: 1000;">
                                         
-                                                  <table id="lista-carrito" class="tabla-carrito">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Imagen</th>
-                                                            <th>Producto</th>
-                                                            <th>Precio</th>
-                                                            <th>Cantidad</th>
-                                                            <th>Total</th>
-                                                            
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="bodyCarrito">
-        
-                                                    </tbody>
-                                                  </table>
-                                                  <div class="botones-carrito" id="botones-carrito">
-                                                    <a href="#" id="vaciar-carrito" class="btn btn-danger w-50">Vaciar Carrito</a>
-                                                    <a href="Tabla2/index.html" id="finalizar-pedido" class="btn btn-success w-50">Finalizar pedido</a>
-                                                  </div>
-                          </div>
+                                              <table id="lista-carrito" class="tabla-carrito">
+                                                          <thead>
+                                                              <tr>
+                                                                  <th>Imagen</th>
+                                                                  <th>Producto</th>
+                                                                  <th>Precio</th>
+                                                                  <th>Total</th>
+                                                                  
+                                                              </tr>
+                                                          </thead>
+                                                          <tbody id="bodyCarrito">
+              
+                                                          </tbody>
+                                              </table>
+                                              <div class="botones-carrito">
+                                              <a href="#" id="vaciar-carrito" class="btn btn-danger w-50">Vaciar Carrito</a>
+                                              <a href="Tabla2/index.html" id="finalizar-pedido" class="btn btn-success w-50">Finalizar pedido</a>
                                               </div>
+                      </div>
+                </div>
                                 </nav>
                              
-</div>
+      </div>
                 </div>
              </div>
         
@@ -96,9 +83,9 @@
       </nav>
         <nav class="subnavegation">
           <ul class="submenu" id="submenu">
-
-
-
+      
+      
+      
             <!-- <li> <a href="#"><i class="fa fa-bars">Todo</li></i>
             <li><a href="#"><li>Vender</li>
             <li><a href="#"><li>Lo mas vendido</li>
@@ -117,98 +104,105 @@
           </ul>
         </nav>
         </header>
+      
+      <p class="card-text"><small class="text-muted"></small></p>
+    <!-- ===================================== -->
+    <!-- NAV -->
+    <!-- ===================================== -->
+    
+    
 
+    <!-- ===================================== -->
+    <!-- IMAGEN -->
+    <!-- ===================================== -->
+    <div class="main-container">
 
-        <div class="producto">
-            <ul id="producto">
-
-            </ul>
-
+    
+    
+    <div class= "card mb-3" style="max-width: 850px text-end"> 
+      <div class="row g-1" id="card-body">
+        <div class="col-md-4"> 
+          <img src="img/Imagen1.jpg" alt="Imagen1" width="300" height="auto">
         </div>
+        <div class="col-md-8">
+          <div class="card-body" >  
+            <!-- ===============Grupo1====================== -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <h5 class="card-text">SAMSUNG Galaxy A32 128gb Blanco 4gb RAM</h5>
+                <!-- <span class="$colors:(yellow);">Amazon's Choice</span> -->
 
-        <footer class="footer" style="margin-bottom: 0px;">
-          <div><button class="pagina" type="button"> inicio de pagina</button> </div>
-         
-           
-          
+                <!-- ===============Star====================== -->
+            <!-- <svg width="16" height="16" fill="currentColor:" class="bi bi-star-fill" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+            <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+            <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+            <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+            <svg width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16"> 
+              <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
+            </svg> -->
 
-          <div class="container">
-            <div class="row">
-              <div class="footer-col">
+             <p class="card-text">Visita la Store de SAMSUNG</p>
+              <button type="button" class="btn btn-primary mb-1 fs-6 p-1">Agregar al Carrito</button>
+             <p class="card-text"><small class="text-muted"> 60 calificaciones de "samsung a32"</small></p>
 
-                <h4>Conocenos</h4>
-                <ul>
-                  <li><a href="#">Trabajar en Amazon</a></li>
-                  <li><a href="#">Informacion corporativa</a></li>
-                  <li><a href="#">Departamentos de Prensa</a></li>
-                </ul>
-                
-              </div>
-              <div class="footer-col">
-                <h4>Gana Dinero con Nosotros</h4>
-                <ul>
-                  <li><a href="#">Vender en amazon</a></li>
-                  <li><a href="#">Vender en amazon en handmade</a></li>
-                  <li><a href="#">publica tu libro en kindle</a></li>
-                  <li><a href="#">programa de afiliados</a></li>
-                  <li><a href="#">anuncia tus productos</a></li>
-                </ul>
-                
-              </div>
-              <div class="footer-col">
-                <h4>Podemos Ayudarte</h4>
-                <ul>
-                  <li><a href="#">Amazon y COVID-19</a></li>
-                   <li><a href="#">devolver o reemplazar productos</a></li>
-                    <li><a href="#">gestionar contenido</a></li>
-                     <li><a href="#">ayuda</a></li>
-                </ul>
-                
-              </div>
-              <div class="footer-col">
-                <h4>Metodos de Pago</h4>
-                <ul>
-                  <li><a href="#">tardeja de credito o debito</a></li>
-                   <li><a href="#">tarjeta de regalo</a></li>
-                    <li><a href="#">meses sin intereses</a></li>
-                     <li><a href="#">amazon cash</a></li>
-                      <li><a href="#">amazon recargable</a></li>
-                </ul>
-                
-              </div>
-              
-             
-             
-            </div>
-          </div>
-           <nav class="paises">
-              <ul class="submenuu">
+               </li>
+                  <!-- ===============Grupo2====================== -->
+                  <li class="list-group-item">
+                    <span class="card-text">Precio recomendado: <del> $6,499.00 Detalles</del></span>
+                    <p class="card-text"> Precio: <a href="#" class="link-danger">$5,397.00</a></p>
+                    <span class="card-text">Ahorras: <a href="#" class="link-danger">$1,102.00 (17%)</a>	</span>
+                    <p class="card-text"><small class="text-muted">Hasta 18 meses sin intereses de $299,89.</small></p>
+                  </li>
 
-            <li><a href="#">Canadá<li></li>|
-              <li><a href="#">Australia<li></li>|
-                <li><a href="#">Alemania<li></li>|
-            <li><a href="#">China<li></li>|
-            <li><a href="#">España<li></li>|
-            <li><a href="#">Estados Unidos<li></li>|
-            <li><a href="#">Francia<li></li>|
-            <li><a href="#">India<li></li>|
-            <li><a href="#">Italia<li></li>|
-            <li><a href="#">Japon<li></li>|
-            <li><a href="#">Paises/Regiones Bajos<li></li>|
-            <li><a href="#">Reino unido<li></li>|
-            <li><a href="#">Singapur<li></li>|
-            <li><a href="#">Turquía<li></li>|
-            <li><a href="#">Y también:Amazon Web Services</li></li>
-            </ul>
-            
-          </nav>
-          <h2 style="color: white; text-align: center;">Pagina creada con fines educativos</h2>
-        </footer>
+                  
+                  <!-- ===============Grupo3====================== -->
+                    <li class="list-group-item">
+                      <h6 class="card-text">Acerca de este artículo</h6>
+                      <ul>
+                        <li>Cuadruple cámara trasera: 64 MP (F1.8), 8 MP (F2.2), 5 MP (F2.4) + 5 MP (2.4) 
+                        <li>Tamaño de pantalla: 6.4 inches; Sistema operativo: Android 10.0
+                        <li>Cámara Frontal: 20 MP (F2.2)
+                      </ul>
+                      <a href="#" class="text-decoration-none">Comparar otras 4 opciones a partir de 
+                        <a href="#" class="link-danger">$5,397.00</a>
+                      </a>
+                      <h6 class="card-text">Envío GRATIS.</h6>
+                    </li>
+
+                  <!-- ===============Grupo4====================== -->
+                   <li class="list-group-item">
+                    <div class="card mb-8" style="max-width: 0px;"></div>
+                     <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Nuevo</li>
+                             <li class="breadcrumb-item active" aria-current="page">2345 Vendidos</li>
+                        </ol>
+                      </nav>
+                    <div>
+
+                  </li>
+              </ul>
+           </div>
+         </div>
+       </div>
+      </div>
+    </div>
 
         <script>
 
           let carrito = [];
 
+          const usuarioLocal = localStorage.getItem('usuario');
+
+          const usuarioLogueado = JSON.parse(usuarioLocal);
           const nombreLogueado = localStorage.getItem('nombre');
           const nombre = document.querySelector('#nombre_logueado');
           const usuario = document.querySelector('#usuario_logueado');
@@ -217,7 +211,10 @@
           const btnCarrito = document.querySelector('#btnCarrito');
           const uiCarrito = document.querySelector('#carrito');
           const vaciarCarrito = document.querySelector('#vaciar-carrito');
-          const botonesCarrito = document.querySelector('#botones-carrito');
+          const botonesCarrito = document.querySelector('.botones-carrito');
+          const menuUsuario = document.querySelector("#menu_usuario");
+          const btnsAdministracion = document.querySelector("#administracion")
+          console.log(usuarioLogueado);
 
           let cantidadProducto = 1;
 
@@ -241,6 +238,32 @@
           uiCarrito.addEventListener('mouseout', () =>{
             uiCarrito.style.display = 'none';
           });
+
+          if(usuarioLocal){
+            if( usuarioLogueado.rol != "ADMIN_ROLE"){
+              btnsAdministracion.innerHTML = "";
+            }
+            usuario.addEventListener('mouseover', () =>{
+            menuUsuario.style.display = 'block';
+            });
+            usuario.addEventListener('mouseout', () =>{
+              menuUsuario.style.display = 'none';
+            });
+            menuUsuario.addEventListener('mouseover', () =>{
+              menuUsuario.style.display = 'block';
+            });
+            menuUsuario.addEventListener('mouseout', () =>{
+              menuUsuario.style.display = 'none';
+            });
+          } 
+
+          if(usuarioLogueado != null) {
+            usuario.innerHTML = `<a style="cursor: pointer"><i> Hola, ${ usuarioLogueado.nombre } </p><h5> Cuentas y Listas</h5></i></a>`;
+            console.log("no es nulo");
+          }else{
+            usuario.innerHTML = '<a href="login.html"><i> Hola, Identificate </p><h5> Cuentas y Listas</h5></i></a>';
+            console.log("si es nulo");
+          }
 
           let carritoLocal = localStorage.getItem('carrito');
           console.log(carritoLocal);
@@ -300,9 +323,9 @@
               }else{
                 return productoCarrito;
               }
-            });
+            }); 
 
-            /* if(carritoLocal){
+            if(carritoLocal){
             let carritoLocalJson = JSON.parse(carritoLocal);
               
               if(carritoLocalJson){
@@ -331,7 +354,7 @@
               }
             
           
-            } */
+            } 
           }
 
           
@@ -406,15 +429,11 @@
             });
           }
 
-          if(nombreLogueado != null) {
-            usuario.innerHTML = `<a onclick='cerrarSesion()' style="cursor: pointer"><i> Hola, ${ nombreLogueado } </p><h5> Cuentas y Listas</h5></i></a>`;
-          }else{
-            usuario.innerHTML = '<a href="login.html"><i> Hola, Identificate </p><h5> Cuentas y Listas</h5></i></a>';
-          }
+          
           
           const cerrarSesion = () => {
             localStorage.removeItem('nombre');
-            location.href ="http://143.244.157.68/";
+            location.href ="http://talleramzfic.ddns.net/";
           }
 
           var requestOptions = {
@@ -458,7 +477,7 @@
                 redirect: 'follow'
             };
 
-            const productoUl = document.querySelector('#producto');
+            const productoUl = document.querySelector('#card-body');
 
             let strProducto = "";
 
@@ -471,12 +490,61 @@
                 const resultJson = JSON.parse(result);
                 localStorage.setItem('producto', JSON.stringify(resultJson.producto));
                 console.log(resultJson.producto.nombre);
-                const { _id, nombre, precio } = resultJson.producto;
+                const { _id, nombre, precio, descripcion, stock } = resultJson.producto;
 
-                strProducto += `<li><img src='http://143.244.157.68:8080/api/productos/imagen/${ _id }' style='width: 100px'></li>`;
-                strProducto += `<li style="color:black">${ nombre }</li>`;
-                strProducto += `<li style="color:black">$${ precio }</li>`;
-                strProducto += `<li class="boton-carrito"><button onclick="agregarCarrito()">Agregar al carrito</button></li>`;
+                strProducto += `<div class="col-md-4"> 
+          <img src="http://143.244.157.68:8080/api/productos/imagen/${ _id }" alt="Imagen1" width="300" height="auto">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body" >  
+            <!-- ===============Grupo1====================== -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <h5 class="card-text">${ nombre }</h5>
+                
+
+             <p class="card-text">Visita la Store del Vendedor</p>
+              <button type="button" class="btn btn-primary mb-1 fs-6 p-1" onclick="agregarCarrito()">Agregar al Carrito</button>
+             <p class="card-text"><small class="text-muted"> 60 calificaciones de "samsung a32"</small></p>
+
+               </li>
+                  <!-- ===============Grupo2====================== -->
+                  <li class="list-group-item">
+                    <span class="card-text">Precio recomendado: <del> $6,499.00 Detalles</del></span>
+                    <p class="card-text"> Precio: <a href="#" class="link-danger">$${ precio }</a></p>
+                    <span class="card-text">Ahorras: <a href="#" class="link-danger">$1,102.00 (17%)</a>	</span>
+                    <p class="card-text"><small class="text-muted">Hasta 18 meses sin intereses de $299,89.</small></p>
+                  </li>
+
+                  
+                  <!-- ===============Grupo3====================== -->
+                    <li class="list-group-item">
+                      <h6 class="card-text">Acerca de este artículo</h6>
+                      <ul>
+                        <li>${ descripcion }
+                      </ul>
+                      <a href="#" class="text-decoration-none">Comparar otras 4 opciones a partir de 
+                        <a href="#" class="link-danger">$5,397.00</a>
+                      </a>
+                      <h6 class="card-text">Envío GRATIS.</h6>
+                    </li>
+
+                  <!-- ===============Grupo4====================== -->
+                   <li class="list-group-item">
+                    <div class="card mb-8" style="max-width: 0px;"></div>
+                     <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Stock</li>
+                             <li class="breadcrumb-item active" aria-current="page">${ stock }</li>
+                        </ol>
+                      </nav>
+                    <div>
+
+                  </li>
+              </ul>
+           </div>
+         </div>
+       </div>`;
 
                 productoUl.innerHTML = strProducto;
                 
